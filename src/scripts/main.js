@@ -6,23 +6,22 @@ const tfoot = document.querySelectorAll('tfoot tr');
 
 const columnIndex = 1;
 
-thead.forEach((tr) => {
-  const th = tr.children[columnIndex];
-  const clonedTh = th.cloneNode(true);
+// eslint-disable-next-line no-shadow
+function insertColumn(rows, columnIndex) {
+  rows.forEach((tr) => {
+    if (tr.children.length > columnIndex) {
+      const th = tr.children[columnIndex];
+      const clonedTh = th.cloneNode(true);
 
-  tr.insertBefore(clonedTh, tr.children[columnIndex + 3]);
-});
+      if (tr.children.length > columnIndex + 2) {
+        tr.insertBefore(clonedTh, tr.children[columnIndex + 3]);
+      } else {
+        tr.appendChild(clonedTh);
+      }
+    }
+  });
+}
 
-tbody.forEach((tr) => {
-  const th = tr.children[columnIndex];
-  const clonedTh = th.cloneNode(true);
-
-  tr.insertBefore(clonedTh, tr.children[columnIndex + 3]);
-});
-
-tfoot.forEach((tr) => {
-  const th = tr.children[columnIndex];
-  const clonedTh = th.cloneNode(true);
-
-  tr.insertBefore(clonedTh, tr.children[columnIndex + 3]);
-});
+insertColumn(thead, columnIndex);
+insertColumn(tbody, columnIndex);
+insertColumn(tfoot, columnIndex);
