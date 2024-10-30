@@ -1,0 +1,2 @@
+var e=document.querySelectorAll("thead tr"),r=document.querySelectorAll("tbody tr"),o=document.querySelectorAll("tfoot tr");e.forEach(function(e){var r=e.children[1].cloneNode(!0);e.insertBefore(r,e.children[4])}),r.forEach(function(e){var r=e.children[1].cloneNode(!0);e.insertBefore(r,e.children[4])}),o.forEach(function(e){var r=e.children[1].cloneNode(!0);e.insertBefore(r,e.children[4])});
+//# sourceMappingURL=index.441f1c24.js.map
